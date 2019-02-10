@@ -25,8 +25,12 @@ module.exports = function(grunt) {
         stderr: false
       },
       target: {
-        command: 'rm ./public/ -rf && mkdir -p ./public'
+        command: 'rm ./public/ -rf && mkdir -p ./public/assets'
       },
+      //copyAssets: './resources/templates/' + templateName + '/'
+      copyBAssets: 'cp ./node_modules/material-design-lite/*.min.* ./public/assets/',
+      copyAssets: 'cp ./resources/templates/dereviative/* ./public/assets -R',
+      clean: 'rm ./public/assets/index.ejs'
     }
   });
 

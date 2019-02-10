@@ -1,6 +1,6 @@
 let title,desc, prefix;
 
-title = 'title'
+title = '123 Soul'
 desc = 'descr'
 prefix = 'prefname'
 

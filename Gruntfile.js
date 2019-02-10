@@ -1,3 +1,8 @@
+let title,desc, prefix;
+
+title = 'title'
+desc = 'descr'
+prefix = 'prefname'
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ejs');
   grunt.loadNpmTasks('grunt-shell');
@@ -5,10 +10,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     ejs: {
       all:{
-        src: [ "./resources/page-templates/*.ejs" ],
-        dest: "public/",
-        expand: true,
-        ext: ".html"
+        options: { page : {
+          title,
+          desc,
+          prefix
+        }},
+        src: [ "./resources/templates/dereviative/index.ejs" ],
+        dest: "public/index.html",
+        expand: false
       }
     },
     shell: {
@@ -16,10 +25,8 @@ module.exports = function(grunt) {
         stderr: false
       },
       target: {
-        command: 'rm ./public/ -rf'
+        command: 'rm ./public/ -rf && mkdir -p ./public'
       },
-      copyAssets: 'mkdir -p ./public/assets  && cp ./node_modules/material-design-lite/*.min.* ./public/assets/',
-      another: 'ls -al ./' // Shorthand
     }
   });
 

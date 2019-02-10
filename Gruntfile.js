@@ -3,13 +3,32 @@ let title,desc, prefix;
 title = 'title'
 desc = 'descr'
 prefix = 'prefname'
+
+//let actvtes = [
+  //"
+  //Case Studies
+  //Complete Turn Taking
+  //Post It Parade
+  //Group Text Reading
+  //Peer Review
+  //Respond, React, Reply
+  //Pro-Con Grids
+  //Social Annotation of Text
+  //Buzz Groups
+  //Quescussion
+  //Think Aloud
+  //Round Table
+  //Debates
+  //"
+
+//]
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ejs');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.initConfig({
     ejs: {
-      all:{
+      index:{
         options: { page : {
           title,
           desc,
@@ -17,6 +36,14 @@ module.exports = function(grunt) {
         }},
         src: [ "./resources/templates/dereviative/index.ejs" ],
         dest: "public/index.html",
+        expand: false
+      },
+      style : {
+        options: { page : {
+          prefix
+        }},
+        src: [ "./resources/templates/dereviative/styles.css.ejs" ],
+        dest: "public/assets/styles.css",
         expand: false
       }
     },
@@ -30,7 +57,8 @@ module.exports = function(grunt) {
       //copyAssets: './resources/templates/' + templateName + '/'
       copyBAssets: 'cp ./node_modules/material-design-lite/*.min.* ./public/assets/',
       copyAssets: 'cp ./resources/templates/dereviative/* ./public/assets -R',
-      clean: 'rm ./public/assets/index.ejs'
+      clean: 'rm ./public/assets/index.ejs',
+      cleancss: 'rm ./public/assets/styles.css.ejs',
     }
   });
 

@@ -3,6 +3,25 @@ let title,desc, prefix;
 title = 'title'
 desc = 'descr'
 prefix = 'prefname'
+
+//let actvtes = [
+  //"
+  //Case Studies
+  //Complete Turn Taking
+  //Post It Parade
+  //Group Text Reading
+  //Peer Review
+  //Respond, React, Reply
+  //Pro-Con Grids
+  //Social Annotation of Text
+  //Buzz Groups
+  //Quescussion
+  //Think Aloud
+  //Round Table
+  //Debates
+  //"
+
+//]
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ejs');
   grunt.loadNpmTasks('grunt-shell');
